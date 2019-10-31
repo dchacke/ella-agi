@@ -29,7 +29,9 @@
     true
     false))
 
-(def true? "Alias for ->boolean" ->boolean)
+(def true?
+  "Alias for ->boolean"
+  ->boolean)
 
 (defn false?
   "Inverts ->boolean."
