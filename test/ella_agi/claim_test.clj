@@ -17,20 +17,26 @@
                 (= char \1)))
             claim)
           "is a binary string"))
+
     (testing "#truth-bit"
       (is (= (truth-bit x) "1") (str "truth bit of \"" x "\" is \"1\""))
       (is (= (truth-bit y) "0") (str "truth bit of \"" y "\" is \"0\"")))
+
     (testing "#->boolean"
       (is (= (->boolean x) true) (str "\"" x "\" has a truthy truth bit"))
       (is (= (->boolean y) false) (str "\"" y "\" has a falsey truth bit")))
+
     (testing "#true?"
       (is (= (true? x) (->boolean x)) "is an alias for ->boolean"))
+
     (testing "#false?"
       (is (= (false? x) false) "returns false for a truthy truth bit")
       (is (= (false? y) true) "returns true for a falsey truth bit"))
+
     (testing "#content"
       (let [x "110"]
         (is (= (content x) "10") (str "the content of \"" x "\" is \"10\""))))
+    
     (testing "#conflict?"
       (let [z "110"]
         (is (= (conflict? x y) true) "returns true for a conflict")
