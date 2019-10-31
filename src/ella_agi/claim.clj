@@ -11,7 +11,7 @@
 
 (defn generate-random-claim
   "Generates a random claim by turning a random number
-  into a binary string."
+  into a binary string and prepending a random truth bit."
   []
   (let [truth-bit (rand-int 2)
         content (Integer/toString (rand-int 1000000000) 2)]
