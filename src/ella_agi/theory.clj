@@ -55,8 +55,6 @@
               claim (claim/generate-random-claim)]
           (try
             (let [result (fun claim)]
-              (and
-                (= (type result) java.lang.String)
-                (not= claim result)))
+              (claim/claim? result))
             (catch Exception e
               false)))))))
