@@ -1,6 +1,7 @@
 (ns ella-agi.claim-test
   (:require [clojure.test :refer :all]
-            [ella-agi.claim :refer :all]))
+            [ella-agi.claim :refer :all]
+            [clojure.string :as s]))
 
 (deftest claim-functions
   (let [claim (generate-random-claim)
@@ -36,9 +37,17 @@
     (testing "#content"
       (let [x "110"]
         (is (= (content x) "10") (str "the content of \"" x "\" is \"10\""))))
-    
+
     (testing "#conflict?"
       (let [z "110"]
         (is (= (conflict? x y) true) "returns true for a conflict")
         (is (= (conflict? x z) false) "returns false for a non-conflict")
-        (is (= (conflict? x x) false) "returns false for a non-conflict")))))
+        (is (= (conflict? x x) false) "returns false for a non-conflict")))
+
+    (testing "#rand-subs"
+      (let [x "1100011"]
+        (is (s/includes? x (rand-subs x)))))
+
+    (testing "#flip"
+      (is (= (flip x) y))
+      (is (= (flip y) x)))))

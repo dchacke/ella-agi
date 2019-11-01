@@ -56,3 +56,24 @@
   (and
     (= (content claim-1) (content claim-2))
     (not= (truth-bit claim-1) (truth-bit claim-2))))
+
+(defn rand-subs
+  "Returns a random substring of a claim. The rest has
+  a min length of 2."
+  [claim]
+  (let [l (- (count claim) 1)
+        start (rand-int l)
+        remaining (- l start)
+        end (+ start (rand-int remaining))
+        end (if (< (- end start) 2) (+ end 2) end)]
+    (subs claim start end)))
+
+(defn flip
+  "Flips a claim's truth value and returns the
+  resulting claim."
+  [claim]
+  (let [c (content claim)]
+    (if (true? claim)
+      (str "0" c)
+      (str "1" c))))
+    
