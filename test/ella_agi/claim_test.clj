@@ -10,7 +10,7 @@
         y "011"]
     (testing "#generate-random-claim"
       (is (>= l 2) "has length >= 2")
-      (is (<= l 100) "has length <= 1000000000")
+      (is (<= l 101) "has length <= 1000000000")
       (is (every?
             (fn [char]
               (or
