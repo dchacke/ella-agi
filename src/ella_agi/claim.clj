@@ -10,12 +10,15 @@
 ; long as it's longer than 1 digit.
 
 (defn generate-random-claim
-  "Generates a random claim by turning a random number
-  into a binary string and prepending a random truth bit."
+  "Generates a random bit string."
   []
-  (let [truth-bit (rand-int 2)
-        content (Integer/toString (rand-int 1000000000) 2)]
-    (str truth-bit content)))
+  (loop [result ""
+         ; Mininum length of two
+         length (+ (rand-int 100) 2)
+         counter 0]
+    (if (< counter length)
+      (recur (str result (rand-int 2)) length (inc counter))
+      result)))
 
 (defn truth-bit
   "Returns a claim's truth bit as a string."
