@@ -76,4 +76,14 @@
     (if (true? claim)
       (str "0" c)
       (str "1" c))))
-    
+
+(defn claim?
+  "Returns true if the given input is a correctly
+  formatted claim, false otherwise."
+  [claim]
+  (if
+    (and
+      (= (type claim) java.lang.String)
+      (re-matches #"[0-1]{1,}" claim))
+    true
+    false))

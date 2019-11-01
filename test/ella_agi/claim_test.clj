@@ -46,8 +46,19 @@
 
     (testing "#rand-subs"
       (let [x "1100011"]
-        (is (s/includes? x (rand-subs x)))))
+        (is (s/includes? x (rand-subs x)) "returns a random substring of a claim")))
 
     (testing "#flip"
       (is (= (flip x) y))
-      (is (= (flip y) x)))))
+      (is (= (flip y) x)))
+
+    (testing "#claim?"
+      (is (= (claim? "1011") true) "is true for a valid true claim")
+      (is (= (claim? "0011") true) "is true for a valid false claim")
+      (is (= (claim? 123) false) "is false for numbers")
+      (is (= (claim? []) false) "is false for vectors")
+      (is (= (claim? {}) false) "is false for maps")
+      (is (= (claim? '()) false) "is false for lists")
+      (is (= (claim? #{}) false) "is false for sets")
+      (is (= (claim? "1asdjklh") false) "is false for random strings")
+      (is (= (claim? "123") false) "is false for stringified numbers"))))
