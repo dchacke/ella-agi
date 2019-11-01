@@ -11,13 +11,7 @@
     (testing "#generate-random-claim"
       (is (>= l 2) "has length >= 2")
       (is (<= l 101) "has length <= 1000000000")
-      (is (every?
-            (fn [char]
-              (or
-                (= char \0)
-                (= char \1)))
-            claim)
-          "is a binary string"))
+      (is (= (re-matches #"[0-1]{1,}" claim) claim) "is a binary string"))
 
     (testing "#truth-bit"
       (is (= (truth-bit x) "1") (str "truth bit of \"" x "\" is \"1\""))
