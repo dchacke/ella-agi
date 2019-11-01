@@ -49,8 +49,8 @@
         (is (s/includes? x (rand-subs x)) "returns a random substring of a claim")))
 
     (testing "#flip"
-      (is (= (flip x) y))
-      (is (= (flip y) x)))
+      (is (= (flip x) y) "flips a claim from true to false")
+      (is (= (flip y) x)) "flips a claim from false to true")
 
     (testing "#claim?"
       (is (= (claim? "1011") true) "is true for a valid true claim")
