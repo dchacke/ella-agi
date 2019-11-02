@@ -74,5 +74,6 @@
                 result (fun claim)]
             ; Store the function's result as a new claim
             ; and its lineage.
-            (store-claim result (list theory claim))))))
+            (store-claim result (list theory claim)))))
+      doall)
     (find-problems @claims)))
