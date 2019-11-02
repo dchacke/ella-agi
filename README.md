@@ -35,6 +35,10 @@ That probably prints a whole lot of stuff, so pretty printing it may be helpful:
 
 The more you run `(-main)`, the bigger the collection of `@claims` will get, and the more problems you will find.
 
+After running `-main`, you can see if any of the generated claims conflict by running:
+
+    > (-> @claims keys find-problems pprint)
+
 ## Todo
 
 Problem solving
