@@ -8,11 +8,15 @@
 ; otherwise they don't have to be pure.
 
 (def functions
-  "Functions that theories can use internally."
+  "Functions that theories can use internally,
+  along with their arities."
   '([and 2]
     [not 1]
     [if  3]
     [claim/generate-random-claim 0]
+    ; This fn can lead to theories that do
+    ; not return the same output for
+    ; the same inputs.
     [claim/rand-subs 1]
     ; This function is mainly responsible
     ; for the ability to detect problems
