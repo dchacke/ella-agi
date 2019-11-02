@@ -32,7 +32,7 @@
     [s/replace 3]))
 
 (def terminals
-  "Terminals used to build up leaves of functions."
+  "Terminals used to build up leaves of function trees."
   '[claim])
 
 (defn generate-random-theory 
