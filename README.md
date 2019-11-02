@@ -1,32 +1,43 @@
 # ella-agi
 
-FIXME: description
+A tentative attempt to implement Ella Hoeppner's [proposal](https://docs.google.com/document/d/1s2HT3UNAr9PaddbmHy7n2_BXp6bouWHcRMLcpyWFbuA/edit) for an AGI.
 
 ## Installation
 
-Download from http://example.com/FIXME.
+First, make sure you have Leiningen [installed](https://leiningen.org/#install). You will need it to run and/or build the code.
 
 ## Usage
 
-FIXME: explanation
+In the project's root, run
 
-    $ java -jar ella-agi-0.1.0-standalone.jar [args]
+    $ lein repl
 
-## Options
+This will load up the project's repl. Then, to load the main namespace:
 
-FIXME: listing of options this app accepts.
+    > (defn reload [] (use 'ella-agi.core :reload-all))
+    > (reload)
 
-## Examples
+(You can also use this function to load any changes you make).
 
-...
+Then, run
 
-### Bugs
+    > (-main)
 
-...
+to invoke the app's main function. This will generate a bunch of theories and claims and find problems. It returns a set of sets of conflicting claims.
 
-### Any Other Sections
-### That You Think
-### Might be Useful
+You can inspect the created claims and their lineages by typing
+
+    > @claims
+
+That probably prints a whole lot of stuff, so pretty printing it may be helpful:
+
+    > (pprint @claims)
+
+The more you run `(-main)`, the bigger the collection of `@claims` will get, and the more problems you will find.
+
+## Todo
+
+Problem solving
 
 ## License
 

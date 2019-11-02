@@ -1,6 +1,10 @@
 (ns ella-agi.core
   (:require [ella-agi.claim :as claim]
-            [ella-agi.theory :as theory])
+            [ella-agi.theory :as theory]
+            ; Remove this once functions are
+            ; turned into functions upon
+            ; instantiation
+            [clojure.string :as s])
   (:gen-class))
 
 ; A set of claims including their lineages.
