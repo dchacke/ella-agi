@@ -40,6 +40,9 @@
   "Turns a datastructure representing a program
   into an executable function"
   [theory]
+  ; TODO: For now, every theory takes a claim as input.
+  ; In the future, some theories should take zero
+  ; arguments.
   (eval (list 'fn '[claim] theory)))
 
 (defn usable-theories
