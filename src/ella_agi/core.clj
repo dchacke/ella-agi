@@ -76,4 +76,4 @@
             ; and its lineage.
             (store-claim result (list theory claim)))))
       doall)
-    (find-problems @claims)))
+    (find-problems (keys @claims))))
