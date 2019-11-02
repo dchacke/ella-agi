@@ -16,7 +16,10 @@
     [claim/generate-random-claim 0]
     ; This fn can lead to theories that do
     ; not return the same output for
-    ; the same inputs.
+    ; the same inputs. As a result, claims
+    ; produced by such theories may not be
+    ; easily reproduced by running their
+    ; lineage.
     [claim/rand-subs 1]
     ; This function is mainly responsible
     ; for the ability to detect problems
