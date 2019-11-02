@@ -43,8 +43,8 @@
   (eval (list 'fn '[claim] theory)))
 
 (defn usable-theories
-  "Filters the given theories down to those that
-  return strings and don't throw an exception."
+  "Filters the given theories down to those distinct
+  ones that return strings and don't throw an exception."
   [theories]
   (->>
     theories
