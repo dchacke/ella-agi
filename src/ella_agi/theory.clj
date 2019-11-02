@@ -36,6 +36,13 @@
         (repeatedly arity
           #(generate-random-theory (dec depth) functions terminals))))))
 
+; Theories are kept in list form only for debugging
+; purposes. Turning them into invokable functions
+; in different places leads to isses such as having
+; to make sure the requisite namespaces are included.
+; Eventually, they should be turned into invokable
+; functions at the time they're created so that
+; their closures work properly.
 (defn theory->fn
   "Turns a datastructure representing a program
   into an executable function"
