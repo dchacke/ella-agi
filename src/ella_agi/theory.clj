@@ -17,7 +17,10 @@
     ; This function is mainly responsible
     ; for the ability to detect problems
     ; between long claims. This suggests
-    ; those problems are not "real".
+    ; those problems are not "real". It
+    ; would be much more meaningful to
+    ; to find that two seemingly unrelated
+    ; theories conflict.
     [claim/flip 1]
     [s/includes? 2]
     [s/starts-with? 2]
