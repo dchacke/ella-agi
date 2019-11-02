@@ -35,6 +35,20 @@
      (swap! claims update claim conj path)
      (swap! claims assoc claim #{path}))))
 
+(defn find-problems
+  "Iterates over given claims to
+  check for conflicts."
+  [claims]
+  (->>
+    ; This can be optimized. Rather than
+    ; checking each claim against all claims,
+    ; check each pair only once.
+    (for [claim-a claims
+          claim-b claims
+          :when (claim/conflict? claim-a claim-b)]
+      #{claim-a claim-b})
+    (into #{})))
+
 (defn -main
   "I don't do a whole lot ... yet."
   []
@@ -62,17 +76,3 @@
             ; and its lineage.
             (store-claim result (list theory claim))))))
     (find-problems @claims)))
-
-(defn find-problems
-  "Iterates over given claims to
-  check for conflicts."
-  [claims]
-  (->>
-    ; This can be optimized. Rather than
-    ; checking each claim against all claims,
-    ; check each pair only once.
-    (for [claim-a claims
-          claim-b claims
-          :when (claim/conflict? claim-a claim-b)]
-      #{claim-a claim-b})
-    (into #{})))
