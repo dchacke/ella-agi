@@ -60,7 +60,7 @@
     (not= (truth-bit claim-1) (truth-bit claim-2))))
 
 (defn rand-subs
-  "Returns a random substring of a claim. The rest has
+  "Returns a random substring of a claim. It has
   a min length of 2."
   [claim]
   (let [l (- (count claim) 1)
