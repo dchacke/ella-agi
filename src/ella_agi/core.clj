@@ -50,7 +50,11 @@
     (into #{})))
 
 (defn -main
-  "I don't do a whole lot ... yet."
+  "Iteratively generate claims and find problems.
+  This fn is stateful. If you invoke it multiple
+  times, the stored collections of produced claims
+  and theories will grow.
+  TODO: Find solutions to problems."
   []
   ; Start out with a random claim that we're going
   ; to pass as input to every theory.

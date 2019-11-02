@@ -14,6 +14,10 @@
     [if  3]
     [claim/generate-random-claim 0]
     [claim/rand-subs 1]
+    ; This function is mainly responsible
+    ; for the ability to detect problems
+    ; between long claims. This suggests
+    ; those problems are not "real".
     [claim/flip 1]
     [s/includes? 2]
     [s/starts-with? 2]

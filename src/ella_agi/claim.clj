@@ -7,7 +7,9 @@
 ; meaning on its own. Its meaning is determined
 ; by theories that are created over time.
 ; The bit string can have an arbitrary length, as
-; long as it's longer than 1 digit.
+; long as it's longer than 1 digit. The longer the
+; string, the less likely problems are to be detected
+; later on.)
 
 (defn generate-random-claim
   "Generates a random bit string."
