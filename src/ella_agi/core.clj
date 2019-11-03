@@ -1,6 +1,7 @@
 (ns ella-agi.core
   (:require [ella-agi.claim :as claim]
             [ella-agi.theory :as theory]
+            [ella-agi.problem :as problem]
             ; Remove this once theories are
             ; turned into functions upon
             ; instantiation
@@ -39,20 +40,6 @@
      (swap! claims update claim conj path)
      (swap! claims assoc claim #{path}))))
 
-(defn find-problems
-  "Iterates over given claims to
-  check for conflicts."
-  [claims]
-  (->>
-    ; This can be optimized. Rather than
-    ; checking each claim against all claims,
-    ; check each pair only once.
-    (for [claim-a claims
-          claim-b claims
-          :when (claim/conflict? claim-a claim-b)]
-      #{claim-a claim-b})
-    (into #{})))
-
 (defn -main
   "Iteratively generate claims and find problems.
   This fn is stateful. If you invoke it multiple
@@ -84,4 +71,4 @@
             ; and its lineage.
             (store-claim result (list theory claim)))))
       doall)
-    (find-problems (keys @claims))))
+    (problem/find-problems (keys @claims))))
