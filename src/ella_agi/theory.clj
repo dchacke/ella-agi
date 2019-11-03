@@ -13,26 +13,24 @@
   '([and 2]
     [not 1]
     [if  3]
-    [claim/generate-random-claim 0]
-    ; This fn can lead to theories that do
+    ; This function is the main cause of problems.
+    ; This suggests to me those problems are not
+    ; "real". It would be much more meaningful to
+    ; to find that two seemingly unrelated theories
+    ; conflict.
+    [claim/flip 1]
+    [s/includes? 2]
+    [s/starts-with? 2]
+    [s/reverse 1]
+    [s/replace 3]
+    ; Below fns can lead to theories that do
     ; not return the same output for
     ; the same inputs. As a result, claims
     ; produced by such theories may not be
     ; easily reproduced by running their
     ; lineage.
     [claim/rand-subs 1]
-    ; This function is mainly responsible
-    ; for the ability to detect problems
-    ; between long claims. This suggests
-    ; those problems are not "real". It
-    ; would be much more meaningful to
-    ; to find that two seemingly unrelated
-    ; theories conflict.
-    [claim/flip 1]
-    [s/includes? 2]
-    [s/starts-with? 2]
-    [s/reverse 1]
-    [s/replace 3]))
+    [claim/generate-random-claim 0]))
 
 (def terminals
   "Terminals used to build up leaves of function trees."
