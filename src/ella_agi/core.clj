@@ -1,7 +1,7 @@
 (ns ella-agi.core
   (:require [ella-agi.claim :as claim]
             [ella-agi.theory :as theory]
-            ; Remove this once functions are
+            ; Remove this once theories are
             ; turned into functions upon
             ; instantiation
             [clojure.string :as s])
